@@ -2,6 +2,7 @@
 
 namespace Glorand\Model\Settings;
 
+use Glorand\Model\Settings\Console\CreateDefaultSettingsTable;
 use Glorand\Model\Settings\Console\CreateSettingsFieldForModel;
 use Glorand\Model\Settings\Console\CreateSettingsTable;
 use Illuminate\Support\ServiceProvider;
@@ -12,6 +13,7 @@ class ModelSettingsServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
+                CreateDefaultSettingsTable::class,
                 CreateSettingsFieldForModel::class,
                 CreateSettingsTable::class,
             ]);
